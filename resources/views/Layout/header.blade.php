@@ -9,7 +9,13 @@
     $categoryMenu = category_table_model::where('lang','=','bn')->where('status','=','Published')->get(); // all data of category table
     $siteSettingData  =site_settings_model::where('id','=',1)->get(); // first index all data off site Setting table
    
-    $website_logo = $siteSettingData[0]['website_logo']; // website logo
+   
+    if($siteSettingData[0]['website_logo'] != null){
+        $website_logo = $siteSettingData[0]['website_logo'];
+    }else{
+        $website_logo = "img/logo.png";
+    }
+
     $headlinetitleData = post_table_model::where('lang','=','bn')->where('headline','=',1)->where('status','=','Publish')->where('public_date','=',$todayDate)->get();
     $social_links_data  =social_link_table_model::where('id','=',1)->first(); 
 

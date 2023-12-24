@@ -5,7 +5,11 @@ use App\Models\social_link_table_model;
  // FOOTER CONTROL 
 $siteSettingData  =site_settings_model::where('id','=',1)->get(); 
 $social_links_data  =social_link_table_model::where('id','=',1)->first(); 
-$footer_logo = $siteSettingData[0]['footer_logo']; // website footer logo logo
+if ($siteSettingData[0]['footer_logo'] != null) {
+    $footer_logo = $siteSettingData[0]['footer_logo'];
+} else {
+    $footer_logo = "img/logo.png";
+}
 ?>
 
 <footer class="footer--section footer-bg">
@@ -146,11 +150,10 @@ $footer_logo = $siteSettingData[0]['footer_logo']; // website footer logo logo
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center-991">
-                    <p>&copy; 2022. All rights reserved - Design and developed by <a href="https://aminitltd.com/">AMIN
-                            IT LTD</a></p>
+                    <p>&copy; 2022. All rights reserved - Design and developed by <a href="#">BD Bangla News</a></p>
                 </div>
                 <div class="col-md-6 text-right text-center-991">
-                    <p> | Proudly hosted by<a target="_blank" href="https://www.hostholder.com/"> Host Holder</a></p>
+                    <p> | Proudly hosted by<a target="_blank" href="#"> Makers Stack</a></p>
                 </div>
             </div>
         </div>
